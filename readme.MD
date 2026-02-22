@@ -3,8 +3,8 @@ erDiagram
     USER ||--o{ ORDER : "places"
     USER ||--o{ CART : "has"
     PRODUCT ||--o{ CART : "added_to"
-    PRODUCT ||--o{ ORDER_PRODUCT : "contains"
-    ORDER ||--o{ ORDER_PRODUCT : "includes"
+    PRODUCT ||--o{ ORDER_DETAIL : "contains"
+    ORDER ||--o{ ORDER_DETAIL : "includes"
     ORDER ||--|| PAYMENT : "has"
     ORDER ||--|| SHIPPING : "has"
 
