@@ -21,16 +21,17 @@ erDiagram
     PRODUCT {
         int id PK
         string product_name
-        decimal price
         text description
         string photo
-        string product_size
+        string size
         int stock
+        decimal price
         decimal originalPrice
+        
     }
 
     ORDER {
-        string id PK
+        id int PK
         int customer_id FK
         datetime order_date
         decimal subtotal
@@ -41,14 +42,14 @@ erDiagram
         datetime created_at
     }
 
-    ORDER_PRODUCT {
-        string order_id PK,FK
-        int product_id PK,FK
+    ORDER_DETAIL {
+        id int PK
+        string order_id FK
+        int product_id FK
         int quantity
         string size
         string temperature
         decimal price
-        decimal originalPrice
         decimal totalPrice
     }
 
