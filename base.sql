@@ -59,10 +59,10 @@ CREATE TABLE products (
     description        TEXT,
     stock              INT NOT NULL DEFAULT 0,
     base_price         DECIMAL(10,2) NOT NULL,
-    product_variant_id INT,
-    product_size_id    INT,
-    FOREIGN KEY (product_variant_id) REFERENCES product_variant(id) ON DELETE SET NULL,
-    FOREIGN KEY (product_size_id)    REFERENCES product_size(id)    ON DELETE SET NULL
+    -- product_variant_id INT,
+    -- product_size_id    INT,
+    -- FOREIGN KEY (product_variant_id) REFERENCES product_variant(id) ON DELETE SET NULL,
+    -- FOREIGN KEY (product_size_id)    REFERENCES product_size(id)    ON DELETE SET NULL
 );
 
 -- ===========================
