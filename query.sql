@@ -36,7 +36,18 @@ LIMIT 5;
 
 /// 2
 
-select o.id as order_id , p.product_name, od.quantity, s.name, t."label", p.base_price, sum(s.additional_price + t.additional_price) as total_additional_price, sum(p.base_price + s.additional_price + t.additional_price) as subtotal 
+select 
+o.id as order_id,
+od.id as order_detail_id,
+p.product_name,
+od.quantity,
+s.name,
+t."label", 
+p.base_price, 
+s.additional_price as tambahan_harga_size,
+t.additional_price as tambahan_harga_variant,
+sum(s.additional_price + t.additional_price) as total_additional_price,
+sum((p.base_price + s.additional_price + t.additional_price) *od.quantity ) as subtotal 
 from orders o 
 left join order_detail od 
 on o.id = od.order_id 
@@ -47,5 +58,5 @@ on od.size_id = s.id
 left join temperature t 
 on od.temperature_id = t.id 
 where o.id = 1
-group by o.id, p.product_name, s.name, t."label", p.base_price, od.quantity
+group by o.id,od.id, p.product_name, s.name, t."label", p.base_price, od.quantity, s.additional_price , t.additional_price 
 limit 3;
