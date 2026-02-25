@@ -55,3 +55,15 @@ select
  product_image,
  isflashsale 
 from products;
+
+/// 4
+select 
+product_image,
+product_name,
+description,
+rating,
+base_price,
+discount_percentage
+from products p
+left join discount d
+on p.id = d.product_id;
