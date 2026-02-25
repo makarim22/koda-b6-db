@@ -49,6 +49,7 @@ erDiagram
         decimal additional_price
     }
 
+
     PRODUCT_SIZE {
         int id PK
         string name
